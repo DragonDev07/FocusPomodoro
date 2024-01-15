@@ -79,6 +79,12 @@ function startTimer(length) {
     // ------ Initialize Timer ------ //
     let timeLeft = length * 60;
 
+    // ------ Unpause Timer ------ //
+    if (isPaused) {
+        isPaused = false;
+        pauseButton.textContent = 'Pause Timer';
+    }
+
     // ------ Update Timer Display ------ //
     timerDisplay.textContent = formatTime(timeLeft);
 
