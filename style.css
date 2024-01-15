@@ -26,13 +26,6 @@ h1 {
     text-align: center;
 }
 
-#timer-length {
-    width: 50px;
-    color: #fff;
-    background-color: #555;
-    border: none;
-}
-
 #button-container {
     display: flex;
     justify-content: space-around;
@@ -57,7 +50,9 @@ h1 {
     border-radius: 5px;
 }
 
-#input-container {
+#focus-input-container,
+#short-input-container,
+#long-input-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,7 +60,17 @@ h1 {
     margin-bottom: 20px;
 }
 
-#timer-length {
+#focus-number-container {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#focus-length,
+#short-break-length,
+#long-break-length {
     width: 50px;
     color: #fff;
     background-color: #555;

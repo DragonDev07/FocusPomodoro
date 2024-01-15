@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
+    <title>FocusPomodoro :D</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Application Main Div -->
     <div id="pomodoro-timer">
-        <h1>Pomodoro Timer</h1>
-        <div id="input-container">
-            <label for="timer-length">Set Timer Length (in minutes):</label>
-            <input type="number" id="timer-length" min="1" max="60" value="25">
+        <!-- Application Name -->
+        <h1>FocusPomodoro</h1>
+
+        <!-- Focus Timer Settings -->
+        <div id="focus-input-container">
+            <label for="focus-length">Focus Timer Length (min):</label>
+            <input type="number" id="focus-length" min="1" max="60" value="25">
         </div>
+
+        <!-- Short Break Timer Settings -->
+        <div id="short-input-container">
+            <label for="short-break-length">Short Break Length (min):</label>
+            <input type="number" id="short-break-length" min="1" max="60" value="5">
+        </div>
+
+        <!-- Long Break Timer Settings -->
+        <div id="long-input-container">
+            <label for="long-break-length">Long Break Length (min):</label>
+            <input type="number" id="long-break-length" min="1" max="60" value="15">
+        </div>
+
+        <!-- Number of Focuses So Far -->
+        <div id="focus-number-container">
+            <p>Number of Focuses So Far: <span id="focus-number">0</span></p>
+        </div>
+
+        <!-- Start and Pause Buttons -->
         <div id="button-container">
             <button id="pause-timer">Pause Timer</button>
             <button id="start-timer">Start Timer</button>
-            <button id="reset-timer">Reset Timer</button>
         </div>
+
+        <!-- Timer Display -->
         <div id="timer-display">25:00</div>
+
+        <!-- Progress Bar -->
         <div id="progress-bar-container">
             <div id="progress-bar"></div>
         </div>
