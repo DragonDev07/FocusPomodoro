@@ -11,11 +11,6 @@ body {
     box-sizing: border-box;
 }
 
-/* ------ Widget Headings ------ */
-h1 {
-    text-align: center;
-}
-
 /* ------ Full Application Div ------ */
 #application-div {
     display: flex;
@@ -28,12 +23,12 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-
     margin-left: 10px;
     margin-right: 10px;
 }
 
-/* ------ Pomodoro Widget ------ */
+/* --------------------- Pomodoro Widget --------------------- */
+/* ------ Pomodoro Heading ------ */
 #pomodoro-timer h1 {
     text-align: center;
 }
@@ -45,7 +40,7 @@ h1 {
 }
 
 /* ------ Button(s) ------ */
-#start-timer, #pause-timer, #reset-timer {
+#start-timer, #pause-timer, #reset-timer, #toggle-button {
     margin: 20px;
     padding: 10px 20px;
     background-color: #ff6347;
@@ -110,4 +105,68 @@ h1 {
     height: 100%;
     background-color: #ff6347;
     width: 100%;
+}
+
+/* --------------------- Spotify Login --------------------- */
+#spotify-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------ Spotify Login Button ------ */
+#login-button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --------------------- Spotify Widget --------------------- */
+#spotify-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------ Center Text ------ */
+#spotify-div p {
+    text-align: center;
+    align-items: center;
+}
+
+/* ------ Spotify Track Name ------ */
+#track-name {
+    font-weight: bold;
+}
+
+/* ------ Spotify Album Art ------ */
+#album-art {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 18;;
+}
+
+/* ------ Spotify Button(s) ------ */
+#toggle-button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ------ Spotify Slider ------ */
+#volume-slider {
+    width: 100%;
+    height: 25px;
+    background: #555;
+    outline: none;
+    border-radius: 10px;
 }

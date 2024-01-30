@@ -9,18 +9,28 @@ const progressBar = document.getElementById('progress-bar');
 const focusInputContainer = document.getElementById('focus-input-container');
 const shortInputContainer = document.getElementById('short-input-container');
 const longInputContainer = document.getElementById('long-input-container');
-const pomodoroCountDisplay = document.getElementById('focus-number-container')
+const pomodoroCountDisplay = document.getElementById('focus-number-container');
+const toggleButton = document.getElementById('toggle-button');
+const spotifyDiv = document.getElementById('spotify-div');
+const spotifyLoginButton = document.getElementById('login-button');
+const spotifyLoginDiv = document.getElementById('spotify-login');
+const volumeSlider = document.getElementById('volume-slider');
 
 // ------ Initialize Variables ------ //
 let isPaused = false;
 let timer;
 let timerState = 'focus';
 let pomodoroCount = 0;
+let player;
+let accessToken;
 
 // ------ Reset Initial Values for Inputs ------ //
 focusLengthInput.value = 25;
 shortBreakLengthInput.value = 5;
 longBreakLengthInput.value = 15;
+
+// ------ Hide Spotify Div until user logs in ------ //
+spotifyDiv.style.display = 'none';
 
 // ------ Request Notification Permission ------ //
 Notification.requestPermission().then(function (permission) {
@@ -72,6 +82,7 @@ startButton.addEventListener('click', () => {
     }
 });
 
+// ------ Start Function ------ //
 function startTimer(length) {
     // ------ Reset Timer ------ //
     clearInterval(timer);
@@ -219,3 +230,114 @@ function formatTime(seconds) {
 function updatePomodoroCountDisplay() {
     pomodoroCountDisplay.textContent = "Number of Focuses So Far: " + pomodoroCount;
 }
+
+// ------ On ToggleButton Click ------ //
+toggleButton.addEventListener('click', () => {
+    if (player) {
+        player.togglePlay().then(() => {
+            console.log('Toggled playback!');
+        }).catch((error) => {
+            console.error('Failed to toggle playback', error);
+        });
+    }
+});
+
+// ------ On LoginButton Click ------ //
+spotifyLoginButton.addEventListener('click', () => {
+    const clientId = '73187b57c897429ab8688f1b927b03a6';
+
+    // TODO: Update Redirect URI
+    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:5500&scope=streaming%20user-read-email%20user-read-private`;
+});
+
+// ------ On Load ------ //
+window.addEventListener('load', () => {
+    // ------ Reset Access Token ------ //
+    accessToken = null;
+
+    // ------ Get the Access Token from the URL ------ //
+    const hash = window.location.hash
+        .substring(1)
+        .split('&')
+        .reduce(function (initial, item) {
+            if (item) {
+                var parts = item.split('=');
+                initial[parts[0]] = decodeURIComponent(parts[1]);
+            }
+            return initial;
+        }, {});
+    window.location.hash = '';
+
+    // ------ Save Access Token ------ //
+    accessToken = hash.access_token;
+    
+    // ------ Hide Spotify-Login & Show Spotify Div ------ //
+    if (accessToken) {
+        spotifyLoginButton.style.display = 'none';
+        spotifyDiv.style.display = 'flex';
+    }
+});
+
+// ------ On Volume Slider Change ------ //
+document.getElementById('volume-slider').addEventListener('input', (event) => {
+    // ------ Convert Volume to a Decimal ------ //
+    const volume = event.target.value / 100;
+
+    // ------ Update the Volume ------ //
+    if (player) {
+      player.setVolume(volume);
+    }
+});
+
+// ------ Spotify API ------ //
+window.onSpotifyWebPlaybackSDKReady = () => {
+
+    // Initialize the Web Playback SDK
+    player = new Spotify.Player({
+        name: 'Web Playback SDK',
+        getOAuthToken: cb => { cb(accessToken); }
+    });
+
+    // ------ Set the Name of the Player ------ //
+    player.setName("FocusPomodoro Spotify Player");
+
+    // ------ Update Volume Slider ------ //
+    player.getVolume().then(volume => {
+        document.getElementById('volume-slider').value = volume * 100;
+    });
+
+    // ------ Transfer Playback to Web Playback SDK ------ //
+    player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+
+        fetch('https://api.spotify.com/v1/me/player', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body: JSON.stringify({
+                device_ids: [device_id],
+                play: true
+            }),
+        });
+    });
+  
+    // ------ Update Track Information ------ //
+    player.addListener('player_state_changed', state => {
+        console.log('Player State Changed', state);
+        // Display the currently playing song name and album
+        const trackName = state.track_window.current_track.name;
+        const albumName = state.track_window.current_track.album.name;
+        const albumArtUrl = state.track_window.current_track.album.images[0].url;
+
+        console.log('Track Name:', trackName);
+        console.log('Album Name:', albumName);
+        document.getElementById('track-name').innerHTML = `${trackName}`;
+        document.getElementById('album-name').innerHTML = `${albumName}`;
+        document.getElementById('album-art').src = albumArtUrl;
+    });
+  
+    // ------ Connect to the Player! :D ------ //
+    player.connect();
+};
