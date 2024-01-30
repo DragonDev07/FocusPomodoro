@@ -18,7 +18,8 @@ body {
 
 /* ------ Widget Div(s) ------ */
 #pomodoro-timer,
-#spotify-div {
+#spotify-div, 
+#spotify-login {
     background-color: #444;
     padding: 20px;
     border-radius: 10px;
