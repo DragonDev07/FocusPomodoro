@@ -152,7 +152,7 @@ body {
 }
 
 /* ------ Spotify Button(s) ------ */
-#toggle-button {
+#toggle-button, #next-button, #prev-button {
     margin: 20px;
     padding: 10px 20px;
     background-color: #ff6347;
@@ -162,11 +162,20 @@ body {
     cursor: pointer;
 }
 
-/* ------ Spotify Slider ------ */
+/* ------ Spotify Volume Slider ------ */
 #volume-slider {
     width: 100%;
     height: 25px;
     background: #555;
+    color: #ff6347;
     outline: none;
     border-radius: 10px;
+}
+
+/* ------ Audio Controls Div ------ */
+#audio-controls {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
 }

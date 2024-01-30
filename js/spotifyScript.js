@@ -1,8 +1,10 @@
-const toggleButton = document.getElementById('toggle-button');
 const spotifyDiv = document.getElementById('spotify-div');
 const spotifyLoginButton = document.getElementById('login-button');
 const spotifyLoginDiv = document.getElementById('spotify-login');
 const volumeSlider = document.getElementById('volume-slider');
+const toggleButton = document.getElementById('toggle-button');
+const nextButton = document.getElementById('next-button');
+const prevButton = document.getElementById('prev-button');
 
 // ------ Initialize Variables ------ //
 let player;
@@ -19,6 +21,20 @@ toggleButton.addEventListener('click', () => {
         }).catch((error) => {
             console.error('Failed to toggle playback', error);
         });
+    }
+});
+
+// ------ On NextButton Click ------ //
+nextButton.addEventListener('click', () => {
+    if (player) {
+        player.nextTrack();
+    }
+});
+
+// ------ On PrevButton Click ------ //
+prevButton.addEventListener('click', () => {
+    if (player) {
+        player.previousTrack();
     }
 });
 
@@ -106,13 +122,11 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     // ------ Update Track Information ------ //
     player.addListener('player_state_changed', state => {
         console.log('Player State Changed', state);
-        // Display the currently playing song name and album
+
         const trackName = state.track_window.current_track.name;
         const albumName = state.track_window.current_track.album.name;
         const albumArtUrl = state.track_window.current_track.album.images[0].url;
 
-        console.log('Track Name:', trackName);
-        console.log('Album Name:', albumName);
         document.getElementById('track-name').innerHTML = `${trackName}`;
         document.getElementById('album-name').innerHTML = `${albumName}`;
         document.getElementById('album-art').src = albumArtUrl;

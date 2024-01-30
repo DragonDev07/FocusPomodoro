@@ -58,17 +58,30 @@
         </div>
 
         <!-- Spotify Div -->
-        <div id="spotify-div" >
+        <div id="spotify-div">
             <!-- Album Art -->
             <img id="album-art" alt="Album Art">
 
             <!-- Track Info -->
-            <p id="track-name"></p>
-            <p id="album-name"></p>
+            <div id="track-info">
+                <p id="track-name"></p>
+                <p id="album-name"></p>
+            </div>
+
+            <!-- Duration Bar -->
+            <!-- <div id="duration-bar-div">
+                <div id="duration-bar"></div>
+            </div> -->
 
             <!-- Audio Controls -->
-            <button id="toggle-button">Toggle Audo State</button>
-            <input type="range" id="volume-slider" min="0" max="100" value="50">
+            <div id="audio-controls">
+                <button id="prev-button">Previous</button>
+                <button id="toggle-button">Pause / Play</button>
+                <button id="next-button">Next</button>
+            </div>
+
+            <!-- Volume Control -->
+            <input type="range" id="volume-slider" min="0" max="100" value="100">
         </div>
     </div>
     <script src="js/script.js"></script>
