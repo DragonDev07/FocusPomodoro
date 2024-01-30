@@ -43,7 +43,7 @@ spotifyLoginButton.addEventListener('click', () => {
     const clientId = '73187b57c897429ab8688f1b927b03a6';
 
     // TODO: Update Redirect URI
-    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=https://dragondev.github.io/FocusPomodoro&scope=streaming%20user-read-email%20user-read-private`;
+    window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=https://dragondev07.github.io/FocusPomodoro&scope=streaming%20user-read-email%20user-read-private`;
 });
 
 // ------ On Load ------ //
