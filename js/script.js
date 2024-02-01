@@ -11,13 +11,11 @@ const shortInputContainer = document.getElementById('short-input-container');
 const longInputContainer = document.getElementById('long-input-container');
 const pomodoroCountDisplay = document.getElementById('focus-number-container');
 
-
 // ------ Initialize Variables ------ //
 let isPaused = false;
 let timer;
 let timerState = 'focus';
 let pomodoroCount = 0;
-
 
 // ------ Reset Initial Values for Inputs ------ //
 focusLengthInput.value = 25;
@@ -44,7 +42,7 @@ startButton.addEventListener('click', () => {
     pomodoroCountDisplay.style.display = 'flex';
 
     // ------ Update StartButton Text ------ //
-    startButton.textContent = 'Restart Timer';
+    startButton.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
 
     // ------ Update Timer State ------ //
     if (timerState === 'none') {
@@ -85,7 +83,7 @@ function startTimer(length) {
     // ------ Unpause Timer ------ //
     if (isPaused) {
         isPaused = false;
-        pauseButton.textContent = 'Pause Timer';
+        pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
     }
 
     // ------ Update Timer Display ------ //
@@ -162,7 +160,7 @@ function startTimer(length) {
                     pomodoroCountDisplay.style.display = 'none';
 
                     // Change StartButton Text to "Start Timer"
-                    startButton.textContent = 'Start Timer';
+                    startButton.innerHTML = '<i class="fa-solid fa-play"></i>';
 
                     // Notify the user that the long break is over
                     new Notification('FocusPomodoro', { body: 'Long Break Timer Finished!' });
@@ -182,7 +180,7 @@ pauseButton.addEventListener('click', () => {
         isPaused = false;
 
         // Update PauseButton Text
-        pauseButton.textContent = 'Pause Timer';
+        pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
         // Hide Input Elements
         focusInputContainer.style.display = 'none';
@@ -196,7 +194,7 @@ pauseButton.addEventListener('click', () => {
         isPaused = true;
 
         // Update PauseButton Text
-        pauseButton.textContent = 'Resume Timer';
+        pauseButton.innerHTML = '<i class="fa-solid fa-play"></i>';
 
         // Show Input Elements
         focusInputContainer.style.display = 'flex';
