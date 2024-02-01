@@ -44,6 +44,8 @@ startButton.addEventListener('click', () => {
     // ------ Update StartButton Text ------ //
     startButton.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
 
+    updatePomodoroCountDisplay();
+
     // ------ Update Timer State ------ //
     if (timerState === 'none') {
         // Reset Timer State
@@ -51,6 +53,9 @@ startButton.addEventListener('click', () => {
 
         // Reset Pomodoro Count
         pomodoroCount = 0;
+
+        // Reset Pomodoro Count Display
+        updatePomodoroCountDisplay();
     }
 
     // ------ Start Timer ------ //
@@ -112,7 +117,6 @@ function startTimer(length) {
                     // If PomodoroCount is 4, start a long break
                     if(pomodoroCount >= 4) {
                         timerState = 'long-break';
-                        pomodoroCountDisplay.textContent = pomodoroCount + " Pomodoros Completed! Take a Long Break! :D";
                     } else {
                         timerState = 'short-break';
                     }
@@ -218,5 +222,13 @@ function formatTime(seconds) {
 
 // ------ Update Pomodoro Count Display ------ //
 function updatePomodoroCountDisplay() {
-    pomodoroCountDisplay.textContent = "Number of Focuses So Far: " + pomodoroCount;
+    let html = '';
+    for(let i = 0; i < 4; i++) {
+        if(i < pomodoroCount) {
+            html += '<i class="fa-solid fa-circle"></i> ';
+        } else {
+            html += '<i class="fa-regular fa-circle"></i> ';
+        }
+    }
+    pomodoroCountDisplay.innerHTML = html;
 }
