@@ -11,6 +11,13 @@ body {
     box-sizing: border-box;
 }
 
+/* ------ When Mobile Stack Vertical ------ */
+@media screen and (max-width: 600px) {
+    #application-div {
+        flex-direction: column;
+    }
+}
+
 /* ------ Full Application Div ------ */
 #application-div {
     display: flex;
