@@ -88,6 +88,11 @@ body {
     margin-bottom: 20px;
 }
 
+/* ------ Icon(s) ------ */
+.pomodoro_icon {
+    margin-right: 5px;
+}
+
 /* ------ Input Fields ------ */
 #focus-length,
 #short-break-length,

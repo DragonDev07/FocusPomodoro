@@ -225,9 +225,9 @@ function updatePomodoroCountDisplay() {
     let html = '';
     for(let i = 0; i < 4; i++) {
         if(i < pomodoroCount) {
-            html += '<i class="fa-solid fa-circle"></i> ';
+            html += '<i class="fa-solid fa-circle pomodoro_icon"></i> ';
         } else {
-            html += '<i class="fa-regular fa-circle"></i> ';
+            html += '<i class="fa-regular fa-circle pomodoro_icon"></i> ';
         }
     }
     pomodoroCountDisplay.innerHTML = html;

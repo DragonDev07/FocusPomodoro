@@ -41,7 +41,7 @@ prevButton.addEventListener('click', () => {
 // ------ On LoginButton Click ------ //
 spotifyLoginButton.addEventListener('click', () => {
     const clientId = '73187b57c897429ab8688f1b927b03a6';
-    const redirectURI = 'https://dragondev07.github.io/FocusPomodoro'
+    const redirectURI = 'https://dragondev07.github.io/FocusPomodoro/'
 
     window.location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectURI}&scope=streaming%20user-read-email%20user-read-private`;
 });
@@ -126,10 +126,12 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         const trackName = state.track_window.current_track.name;
         const albumName = state.track_window.current_track.album.name;
         const albumArtUrl = state.track_window.current_track.album.images[0].url;
+        const isPaused = state.paused;
 
         document.getElementById('track-name').innerHTML = `${trackName}`;
         document.getElementById('album-name').innerHTML = `${albumName}`;
         document.getElementById('album-art').src = albumArtUrl;
+        document.getElementById('toggle-button').innerHTML = isPaused ? '<i class="fa-solid fa-play"></i>' : '<i class="fa-solid fa-pause"></i>';
     });
   
     // ------ Connect to the Player! :D ------ //
