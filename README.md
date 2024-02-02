@@ -5,7 +5,7 @@ A simple & Minimalistic Pomodoro timer to help with focus
 - Pomodoro Timer
     - Adjustable short/long break & focus lengths
     - Pause / Resume
-    - Edit timer lengths after start
+    - Edit timer lengths after starting the timer
 - Spotify Integration
     - Track Name
     - Album Name
