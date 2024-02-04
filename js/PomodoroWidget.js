@@ -222,13 +222,18 @@ function formatTime(seconds) {
 
 function updatePomodoroCountDisplay() {
     let html = '';
-    for(let i = 0; i < 4; i++) {
-        if(i < pomodoroCount) {
-            html += `<i class="fa-solid fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
-        } else {
-            html += `<i class="fa-regular fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
+    if (timerState === 'long-break') {
+        html += `<i class="fa-solid fa-mug-saucer"></i>`;
+    } else {
+        for(let i = 0; i < 4; i++) {
+            if(i < pomodoroCount) {
+                html += `<i class="fa-solid fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
+            } else {
+                html += `<i class="fa-regular fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
+            }
         }
     }
+
     pomodoroCountDisplay.innerHTML = html;
 
     // Add event listeners to the icons
