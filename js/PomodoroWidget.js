@@ -220,15 +220,23 @@ function formatTime(seconds) {
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
 
-// ------ Update Pomodoro Count Display ------ //
 function updatePomodoroCountDisplay() {
     let html = '';
     for(let i = 0; i < 4; i++) {
         if(i < pomodoroCount) {
-            html += '<i class="fa-solid fa-circle pomodoro_icon"></i> ';
+            html += `<i class="fa-solid fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
         } else {
-            html += '<i class="fa-regular fa-circle pomodoro_icon"></i> ';
+            html += `<i class="fa-regular fa-circle pomodoro_icon" data-count="${i+1}"></i> `;
         }
     }
     pomodoroCountDisplay.innerHTML = html;
+
+    // Add event listeners to the icons
+    let icons = document.querySelectorAll('.pomodoro_icon');
+    icons.forEach((icon, index) => {
+        icon.addEventListener('click', function() {
+            pomodoroCount = index + 1;
+            startButton.click();
+        });
+    });
 }
