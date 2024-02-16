@@ -191,8 +191,8 @@ pauseButton.addEventListener('click', () => {
         shortInputContainer.style.display = 'none';
         longInputContainer.style.display = 'none';
 
-        // Hide Number of Focuses
-        pomodoroCountDisplay.style.display = 'none';
+        // Show Number of Focuses
+        pomodoroCountDisplay.style.display = 'flex';
     } else {
         // Update Value
         isPaused = true;
@@ -205,8 +205,8 @@ pauseButton.addEventListener('click', () => {
         shortInputContainer.style.display = 'flex';
         longInputContainer.style.display = 'flex';
 
-        // Show Number of Focuses
-        pomodoroCountDisplay.style.display = 'flex';
+        // Hide Number of Focuses
+        pomodoroCountDisplay.style.display = 'none';
     }
 });
 
