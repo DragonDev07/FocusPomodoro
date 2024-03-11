@@ -1,39 +1,39 @@
-@import url('PomodoroWidget.css');
-@import url('SpotifyWidget.css');
+@import url("PomodoroWidget.css");
+@import url("SpotifyWidget.css");
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* ------ When Mobile Stack Vertical ------ */
 @media screen and (max-width: 600px) {
-    #application-div {
-        flex-direction: column;
-    }
+  #application-div {
+    flex-direction: column;
+  }
 }
 
 /* ------ Full Application Div ------ */
 #application-div {
-    display: flex;
+  display: flex;
 }
 
 /* ------ Widget Div(s) ------ */
 #pomodoro-timer,
-#spotify-div, 
+#spotify-div,
 #spotify-login {
-    background-color: #444;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    margin-left: 10px;
-    margin-right: 10px;
+  background-color: #444;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-right: 10px;
 }

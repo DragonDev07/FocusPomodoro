@@ -1,102 +1,105 @@
 /* --------------------- Pomodoro Widget --------------------- */
 /* ------ Pomodoro Heading ------ */
 #pomodoro-timer h1 {
-    text-align: center;
+  text-align: center;
 }
 
 /* ------ Button(s) Div ------ */
 #button-container {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 /* ------ Button(s) ------ */
-#start-timer, #pause-timer, #reset-timer, #toggle-button {
-    margin: 20px;
-    padding: 10px 20px;
-    background-color: #ff6347;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+#start-timer,
+#pause-timer,
+#reset-timer,
+#toggle-button {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* ------ Timer Display ------ */
 #timer-display {
-    font-size: 2em;
-    text-align: center;
-    background-color: #555;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+  font-size: 2em;
+  text-align: center;
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* ------ Inputs ------ */
 #focus-input-container,
 #short-input-container,
 #long-input-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* ------ Amount of Pomodoro(s) Completed ------ */
 #focus-number-container {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* ------ Icon(s) ------ */
 .pomodoro_icon {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 /* ------ Input Fields ------ */
 #focus-length,
 #short-break-length,
 #long-break-length {
-    width: 50px;
-    color: #fff;
-    background-color: #555;
-    border: none;
-    margin-left: 10px;
+  width: 50px;
+  color: #fff;
+  background-color: #555;
+  border: none;
+  margin-left: 10px;
 }
 
 /* ------ Timer Progress Bar Div ------ */
 #progress-bar-container {
-    width: 100%;
-    height: 20px;
-    background-color: #555;
-    border-radius: 10px;
-    overflow: hidden;
+  width: 100%;
+  height: 20px;
+  background-color: #555;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* ------ Timer Progress Bar ------ */
 #progress-bar {
-    height: 100%;
-    background-color: #ff6347;
-    width: 100%;
+  height: 100%;
+  background-color: #ff6347;
+  width: 100%;
 }
 
 /* --------------------- Spotify Login --------------------- */
 #spotify-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ------ Spotify Login Button ------ */
 #login-button {
-    margin: 20px;
-    padding: 10px 20px;
-    background-color: #ff6347;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

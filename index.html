@@ -1,85 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/4ebe15b171.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/4ebe15b171.js"
+      crossorigin="anonymous"
+    ></script>
     <title>FocusPomodoro :D</title>
-    <link rel="stylesheet" href="styles/Main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/Main.css" />
+  </head>
+  <body>
     <!-- Application Main Div -->
     <div id="application-div">
-        <!-- Timer Main Div -->
-        <div id="pomodoro-timer">
-            <!-- Application Name -->
-            <h1>FocusPomodoro</h1>
+      <!-- Timer Main Div -->
+      <div id="pomodoro-timer">
+        <!-- Application Name -->
+        <h1>FocusPomodoro</h1>
 
-            <!-- Focus Timer Settings -->
-            <div id="focus-input-container">
-                <label for="focus-length">Focus Timer Length (min):</label>
-                <input type="number" id="focus-length" min="1" max="60" value="25">
-            </div>
-
-            <!-- Short Break Timer Settings -->
-            <div id="short-input-container">
-                <label for="short-break-length">Short Break Length (min):</label>
-                <input type="number" id="short-break-length" min="1" max="60" value="5">
-            </div>
-
-            <!-- Long Break Timer Settings -->
-            <div id="long-input-container">
-                <label for="long-break-length">Long Break Length (min):</label>
-                <input type="number" id="long-break-length" min="1" max="60" value="15">
-            </div>
-
-            <!-- Number of Focuses So Far -->
-            <div id="focus-number-container"></div>
-
-            <!-- Start and Pause Buttons -->
-            <div id="button-container">
-                <button id="pause-timer"><i class="fa-solid fa-pause"></i></button>
-                <button id="start-timer"><i class="fa-solid fa-play"></i></button>
-            </div>
-
-            <!-- Timer Display -->
-            <div id="timer-display">25:00</div>
-
-            <!-- Progress Bar -->
-            <div id="progress-bar-container">
-                <div id="progress-bar"></div>
-            </div>
+        <!-- Focus Timer Settings -->
+        <div id="focus-input-container">
+          <label for="focus-length">Focus Timer Length (min):</label>
+          <input type="number" id="focus-length" min="1" max="60" value="25" />
         </div>
 
-        <!-- Spotify Login Button -->
-        <div id="spotify-login">
-            <button id="login-button"><i class="fa-solid fa-right-to-bracket"></i> Login to Spotify</button>
+        <!-- Short Break Timer Settings -->
+        <div id="short-input-container">
+          <label for="short-break-length">Short Break Length (min):</label>
+          <input
+            type="number"
+            id="short-break-length"
+            min="1"
+            max="60"
+            value="5"
+          />
         </div>
 
-        <!-- Spotify Div -->
-        <div id="spotify-div">
-            <!-- Album Art -->
-            <img id="album-art" alt="Album Art">
-
-            <!-- Track Info -->
-            <div id="track-info">
-                <p id="track-name"></p>
-                <p id="album-name"></p>
-            </div>
-
-            <!-- Audio Controls -->
-            <div id="audio-controls">
-                <button id="prev-button"><i class="fa-solid fa-backward"></i></button>
-                <button id="toggle-button"><i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i></button>
-                <button id="next-button"><i class="fa-solid fa-forward"></i></button>
-            </div>
-
-            <!-- Volume Control -->
-            <input type="range" id="volume-slider" min="0" max="100" value="100">
+        <!-- Long Break Timer Settings -->
+        <div id="long-input-container">
+          <label for="long-break-length">Long Break Length (min):</label>
+          <input
+            type="number"
+            id="long-break-length"
+            min="1"
+            max="60"
+            value="15"
+          />
         </div>
+
+        <!-- Number of Focuses So Far -->
+        <div id="focus-number-container"></div>
+
+        <!-- Start and Pause Buttons -->
+        <div id="button-container">
+          <button id="pause-timer"><i class="fa-solid fa-pause"></i></button>
+          <button id="start-timer"><i class="fa-solid fa-play"></i></button>
+        </div>
+
+        <!-- Timer Display -->
+        <div id="timer-display">25:00</div>
+
+        <!-- Progress Bar -->
+        <div id="progress-bar-container">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Spotify Login Button -->
+      <div id="spotify-login">
+        <button id="login-button">
+          <i class="fa-solid fa-right-to-bracket"></i> Login to Spotify
+        </button>
+      </div>
+
+      <!-- Spotify Div -->
+      <div id="spotify-div">
+        <!-- Album Art -->
+        <img id="album-art" alt="Album Art" />
+
+        <!-- Track Info -->
+        <div id="track-info">
+          <p id="track-name"></p>
+          <p id="album-name"></p>
+        </div>
+
+        <!-- Audio Controls -->
+        <div id="audio-controls">
+          <button id="prev-button"><i class="fa-solid fa-backward"></i></button>
+          <button id="toggle-button">
+            <i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i>
+          </button>
+          <button id="next-button"><i class="fa-solid fa-forward"></i></button>
+        </div>
+
+        <!-- Volume Control -->
+        <input type="range" id="volume-slider" min="0" max="100" value="100" />
+      </div>
     </div>
     <script src="js/PomodoroWidget.js"></script>
     <script src="js/SpotifyWidget.js"></script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
-</body>
+  </body>
 </html>
